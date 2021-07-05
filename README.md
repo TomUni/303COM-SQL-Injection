@@ -2,7 +2,7 @@
 ## Developememt Setup:
 To replicate my development setup you will need to install the prerequisites listed below and Python modules contained in Requirements.txt.
 
-###Prerequisites:
+### Prerequisites:
 
 1. Install Python3.9 [Download](https://www.python.org/downloads/release/python-395/)
 2. Install pip [Install Guide](https://pip.pypa.io/en/stable/installing/)
