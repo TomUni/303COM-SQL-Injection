@@ -1,0 +1,65 @@
+<div class="sidebar">
+    <!--
+      Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+  -->
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="javascript:void(0)" class="simple-text logo-mini">
+                TZN
+            </a>
+            <a href="javascript:void(0)" class="simple-text logo-normal">
+                Tom Newmann
+            </a>
+        </div>
+        <ul class="nav">
+            <li class="{% if db_setup_active %} active {%endif%}">
+                <a href="{{ url_for('injection_portal.dashboard') }}">
+                    <i class="tim-icons icon-tv-2"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="{% if tautology_active %} active {%endif%}">
+                <a href="{{ url_for('injection_portal.tautology') }}">
+                    <i class="tim-icons icon-link-72"></i>
+                    <p>Tautology Attack</p>
+                </a>
+            </li>
+            <li class="{% if illegal_active %} active {%endif%}">
+                <a href="{{ url_for('injection_portal.illegal') }}">
+                    <i class="tim-icons icon-alert-circle-exc"></i>
+                    <p>Illegal Queries</p>
+                </a>
+            </li>
+            <li class="{% if union_active %} active {%endif%}">
+                <a href="{{ url_for('injection_portal.union') }}">
+                    <i class="tim-icons icon-vector"></i>
+                    <p>Union Query</p>
+                </a>
+            </li>
+            <li class="{% if piggy_backed_active %} active {%endif%}">
+                <a href="{{ url_for('injection_portal.piggy_backed') }}">
+                    <i class="tim-icons icon-tag"></i>
+                    <p>Piggy-Backed Queries</p>
+                </a>
+            </li>
+            <li class="{% if stored_procedure_active %} active {%endif%}">
+                <a href="{{ url_for('injection_portal.stored_procedure') }}">
+                    <i class="tim-icons icon-wallet-43"></i>
+                    <p>Stored Procedures</p>
+                </a>
+            </li>
+            <li class="{% if inference_active %} active {%endif%}">
+                <a href="{{ url_for('injection_portal.inference') }}">
+                    <i class="tim-icons icon-molecule-40"></i>
+                    <p>Inference</p>
+                </a>
+            </li>
+            <li class="{% if alternate_encoding_active %} active {%endif%}">
+                <a href="{{ url_for('injection_portal.alternate_encoding') }}">
+                    <i class="tim-icons icon-upload"></i>
+                    <p>Alternate Encodings</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

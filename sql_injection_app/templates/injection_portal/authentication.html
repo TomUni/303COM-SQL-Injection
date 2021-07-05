@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4 class="card-title">
+                        {{ method_title }} (Custom)
+                    </h4>
+                </div>
+                <div class="card-body offset-1 col-10">
+                    {% if custom_error %}
+                    <div class="alert alert-{{ custom_error [0] }}">
+                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="tim-icons icon-simple-remove"></i>
+                        </button>
+                        <span>{{ custom_error[1] }}</span>
+                    </div>
+                    {% endif %}
+                    <form method="post" action="{{ form_action_url }}">
+
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label for="query_field">Query</label>
+                                <input type="text" class="form-control" id="query_field" name="query_field"
+                                       placeholder="Enter Query" {% if query %} value="{{ query }}" {% endif %}>
+                            </div>
+                        </div>
+                        <div class="form-check text-center">
+                            <button type="submit" class="btn btn-primary">Execute Query</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="card-header text-center">
+                    <h4 class="card-title">
+                        {{ method_title }} (Preset)
+                    </h4>
+                </div>
+                <div class="card-body offset-1 col-10">
+                    {% if preset_error %}
+                    <div class="alert alert-{{ preset_error[0] }}">
+                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="tim-icons icon-simple-remove"></i>
+                        </button>
+                        <span>{{ preset_error[1] }}</span>
+                    </div>
+                    {% endif %}
+                    <form method="post" action="{{ form_action_url }}">
+
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="username_field">Username</label>
+                                <input type="text" class="form-control" id="username_field" name="username_field"
+                                       placeholder="Enter Username" {% if preset %} value="{{ preset[0] }}" {% endif %}>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="password_field">Password</label>
+                                <input type="text" class="form-control col-9" id="password_field"
+                                       name="password_field"
+                                       placeholder="Enter Password" {% if preset %} value="{{ preset[1] }}" {% endif %}>
+                            </div>
+
+                            <div class="form-group offset-3 col-7">
+                                <label for="table_field">Table</label>
+                                <select class="form-control" id="table_field" name="table_field">
+                                    {% for table in tables %}
+                                    <option>{{ table }}</option>
+                                    {% endfor %}
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="form-check text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="card-body">
+                    <table class="table tablesorted">
+                        <thead class=" text-primary">
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                User Name
+                            </th>
+                        </thead>
+                        <tbody>
+                        {% for key in data %}
+                        <tr>
+                            {% if key.username %}
+                            <td>{{ key.id }}</td>
+                            <td>{{ key.username }}</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

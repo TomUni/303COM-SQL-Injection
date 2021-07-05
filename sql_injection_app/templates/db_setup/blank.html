@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+
+{% block sidebar %}
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block page_content %}
+<div class="login-content">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-10 offset-1">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="card-title">
+                        DB Credentials
+                    </h2>
+                </div>
+                <div class="card-body offset-1 col-10">
+                    {% if error %}
+                    <div class="alert alert-warning">
+                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="tim-icons icon-simple-remove"></i>
+                        </button>
+                        <span>{{ error }}</span>
+                    </div>
+                    {% endif %}
+                    <form method="post" action="{{ url_for('db_setup.blank') }}">
+
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="host_field">Host</label>
+                                <input type="text" class="form-control" id="host_field" name="host_field"
+                                       value="localhost"
+                                       placeholder="Enter Host">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="port_field">Port</label>
+                                <input type="number" class="form-control col-9" id="port_field" name="port_field"
+                                       value="3306"
+                                       placeholder="Enter Port">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="user_field">User</label>
+                                <input type="text" class="form-control" id="user_field" name="user_field"
+                                       placeholder="Enter User">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="password_field">Password</label>
+                                <input type="password" class="form-control" id="password_field" name="password_field"
+                                       placeholder="Enter Password">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="user_field">Database</label>
+                                <input type="text" class="form-control" id="database_field" name="database_field"
+                                       placeholder="Enter Database">
+                            </div>
+                        </div>
+                        <div class="form-check text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}
